@@ -1,0 +1,89 @@
+ptask CompasVehUpdate[1000](playerid)
+{
+	if(!AccountData[playerid][pSpawned])
+		return 0;
+
+    new vehid = GetPlayerVehicleID(playerid);
+	if(IsValidVehicle(vehid))
+	{
+		if(!GetEngineStatus(vehid) && IsEngineVehicle(vehid) && !IsABike(vehid))
+		{
+			SwitchVehicleEngine(vehid, false);
+		}
+		if(GetPlayerState(playerid) == PLAYER_STATE_DRIVER)
+		{
+			new Float:vHealth;
+			GetVehicleHealth(vehid, vHealth);
+			if(IsValidVehicle(vehid) && vHealth <= 350.0)
+			{
+				SwitchVehicleEngine(vehid, false);
+				ShowPlayerFooter(playerid, "~w~Engine~r~ Totalled", 2000);
+			}
+		}
+		if(IsPlayerInAnyVehicle(playerid) && GetPlayerState(playerid) == PLAYER_STATE_DRIVER)
+		{
+			static const
+			step_1 = MAX_UICOMPASS_STEP * 1,
+			step_2 = MAX_UICOMPASS_STEP * 2,
+			step_3 = MAX_UICOMPASS_STEP * 3;
+			
+			static 
+			north, 
+			result, 
+			direction, 
+			Float:angle;
+
+			//Find out the player's direction
+			GetVehicleZAngle(vehid, angle);
+
+			//Get the maximum step of the compass
+			result = RoundCompassDirection(angle);
+
+			//Get the minimum step of the compass
+			direction = RoundCompassDirection(angle, MIN_UICOMPASS_STEP);
+
+			//Find out what TD will be displayed "N"
+			north = CompassHeadingNorth(result);
+
+			//Three previous directions
+			PlayerTextDrawSetString(playerid, compastd[playerid][20], CreateCompassString(result - step_3));
+			PlayerTextDrawSetString(playerid, compastd[playerid][19], CreateCompassString(result - step_2));
+			PlayerTextDrawSetString(playerid, compastd[playerid][18], CreateCompassString(result - step_1));
+
+			//The current direction
+			PlayerTextDrawSetString(playerid, compastd[playerid][14], CreateCompassString(result));
+
+			//Three next directions
+			PlayerTextDrawSetString(playerid, compastd[playerid][17], CreateCompassString(result + step_1));
+			PlayerTextDrawSetString(playerid, compastd[playerid][16], CreateCompassString(result + step_2));
+			PlayerTextDrawSetString(playerid, compastd[playerid][15], CreateCompassString(result + step_3));
+
+			//Print direction which is multiply to the minimum step
+			PlayerTextDrawSetString(playerid, compastd[playerid][0], CreateCompassString(direction, MIN_UICOMPASS_STEP));
+
+			//Installed all the TD the original color
+			PlayerTextDrawColor(playerid, compastd[playerid][20], 0xFFFFFFFF);
+			PlayerTextDrawShow(playerid, compastd[playerid][20]);
+			PlayerTextDrawColor(playerid, compastd[playerid][19], 0xFFFFFFFF);
+			PlayerTextDrawShow(playerid, compastd[playerid][19]);
+			PlayerTextDrawColor(playerid, compastd[playerid][18], 0xFFFFFFFF);
+			PlayerTextDrawShow(playerid, compastd[playerid][18]);
+			PlayerTextDrawColor(playerid, compastd[playerid][17], 0xFFFFFFFF);
+			PlayerTextDrawShow(playerid, compastd[playerid][17]);
+			PlayerTextDrawColor(playerid, compastd[playerid][16], 0xFFFFFFFF);
+			PlayerTextDrawShow(playerid, compastd[playerid][16]);
+			PlayerTextDrawColor(playerid, compastd[playerid][15], 0xFFFFFFFF);
+			PlayerTextDrawShow(playerid, compastd[playerid][15]);
+			PlayerTextDrawColor(playerid, compastd[playerid][14], 0xFFFFFFFF);
+			PlayerTextDrawShow(playerid, compastd[playerid][14]);
+			
+			//Set the TD yellow color, where it will be displayed "N"
+			if (13 <= north < 20)
+			{
+				PlayerTextDrawColor(playerid, compastd[playerid][north], 0xFFFF00FF);
+				PlayerTextDrawShow(playerid, compastd[playerid][north]);
+			}
+		}
+	}
+	return 1;
+}
