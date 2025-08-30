@@ -1,3 +1,30 @@
+/*
+
+██╗  ██╗ █████╗ ██████╗ ██████╗ ██╗   ██╗    ██████╗  ██████╗ ██╗     ███████╗██████╗ ██╗      █████╗ ██╗   ██╗
+██║  ██║██╔══██╗██╔══██╗██╔══██╗╚██╗ ██╔╝    ██╔══██╗██╔═══██╗██║     ██╔════╝██╔══██╗██║     ██╔══██╗╚██╗ ██╔╝
+███████║███████║██████╔╝██████╔╝ ╚████╔╝     ██████╔╝██║   ██║██║     █████╗  ██████╔╝██║     ███████║ ╚████╔╝ 
+██╔══██║██╔══██║██╔═══╝ ██╔═══╝   ╚██╔╝      ██╔══██╗██║   ██║██║     ██╔══╝  ██╔═══╝ ██║     ██╔══██║  ╚██╔╝  
+██║  ██║██║  ██║██║     ██║        ██║       ██║  ██║╚██████╔╝███████╗███████╗██║     ███████╗██║  ██║   ██║   
+╚═╝  ╚═╝╚═╝  ╚═╝╚═╝     ╚═╝        ╚═╝       ╚═╝  ╚═╝ ╚═════╝ ╚══════╝╚══════╝╚═╝     ╚══════╝╚═╝  ╚═╝   ╚═╝   
+										GAMEMODE V2
+
+Owner : Alstonn(irzam)
+Developer : XenXen
+ 
+	  Thanks For :	
+	- Kalcor (samp)
+	- Zeex (plugins crashdetectd)
+	- Y_Less (ysi libarary)
+	- dhan (developer is gamemode)
+	- Bonti (give script & asking)
+	- Agus (give script & asking)
+	- Galang Indra (give script & asking)
+	- etc.
+
+Thanks all administartor and developer
+
+*/
+
 #pragma warning disable 239, 208, 209
 
 #define CGEN_MEMORY             (20000)
@@ -1340,12 +1367,12 @@ stock DatabaseConnection()
 	g_SQL = mysql_connect("157.245.60.247", "u1_BW6yNxyUlf", "RwtZ=jhdd@VfTUB^da+g^n5f", "s1_execute");
 	if (g_SQL == MYSQL_INVALID_HANDLE || mysql_errno(g_SQL) != 0)
 	{
-		print("Execute Roleplay: Connection To MYSQL Failed! Server Shutting Down!");
+		print("Happy Roleplay: Connection To MYSQL Failed! Server Shutting Down!");
 		SendRconCommand("exit");
 	}
 	else
 	{
-		print("Execute Roleplay: Database successfully connected to MySQL.");
+		print("Happy Roleplay: Database successfully connected to MySQL.");
 	}
 	return 1;
 }
@@ -1372,7 +1399,7 @@ public OnGameModeInit()
 	SetGameModeText(sprintf("%s", TEXT_GAMEMODE));
 	SendRconCommand(sprintf("weburl %s", TEXT_WEBURL));
 	SendRconCommand(sprintf("language %s", TEXT_LANGUAGE));
-	// SendRconCommand("hostname Execute Roleplay | SA-MP Indonesia");
+	// SendRconCommand("hostname Happy Roleplay | SA-MP Indonesia");
 	SendRconCommand("mapname San Andreas");
 	BlockGarages(.text="Tutup");
 
@@ -1497,7 +1524,7 @@ public OnPlayerClickPlayer(playerid, clickedplayerid, source)
 		if(clickedplayerid == playerid) return 0;
 
 		new title[127];
-		format(title, sizeof(title), ""City"Execute Roleplay "WHITE"- %s(%d)", ReturnName(clickedplayerid), clickedplayerid);
+		format(title, sizeof(title), ""City"Happy Roleplay "WHITE"- %s(%d)", ReturnName(clickedplayerid), clickedplayerid);
 		ShowPlayerDialog(playerid, DIALOG_CLICKPLAYER, DIALOG_STYLE_LIST, title, 
 		""City"Menu Admin\n\
 		\nSpectator Pemain\
@@ -1809,7 +1836,7 @@ public OnPlayerSpawn(playerid)
 		SetPlayerCameraLookAt(playerid, 582.755, -2178.958, 129.546);
 		InterpolateCameraPos(playerid, 584.769, -2183.039, 131.617, 584.769, -2183.039, 131.617, 20000, CAMERA_MOVE);
 		SetPlayerVirtualWorld(playerid, 3);
-		ShowPlayerDialog(playerid, DIALOG_AGE, DIALOG_STYLE_INPUT, ""City"Execute Roleplay "WHITE"- Tanggal Lahir", "Mohon masukkan tanggal lahir sesuai format hh/bb/tttt cth: (25/09/2001)", "Input", "");
+		ShowPlayerDialog(playerid, DIALOG_AGE, DIALOG_STYLE_INPUT, ""City"Happy Roleplay "WHITE"- Tanggal Lahir", "Mohon masukkan tanggal lahir sesuai format hh/bb/tttt cth: (25/09/2001)", "Input", "");
 	}
 	else
 	{
@@ -1854,8 +1881,8 @@ public OnPlayerSpawn(playerid)
 			SendClientMessageEx(playerid, -1, ""BLUEJEGE"SERVER: "WHITE"Server memerlukan waktu "YELLOW"%d milisecond"WHITE" untuk memuat char anda.", GetPlayerPing(playerid));
 			SendClientMessage(playerid, -1, ""LIGHTSKYBLUE"NOTE:"WHITE" Jika anda punya pertanyaan gunakan "RED"/ask"WHITE", untuk keperluan lainnya anda dapat menggunakan "RED"/help");
 			SendClientMessage(playerid, -1, ""LIGHTSKYBLUE"NOTE:"WHITE" Sering sering menggunakan cmd "RED"/saveme"WHITE", untuk menyimpan charater anda ke database server");
-			SendClientMessage(playerid, -1, ""LIGHTSKYBLUE"NOTE:"WHITE" Discord kita yaitu: "GOLD1"dsc.gg/Executeroleplay");
-			SendClientMessage(playerid, -1, ""LIGHTSKYBLUE"MOTD: "WHITE"Selamat bermain dan memulai cerita di "City"Execute Roleplay");
+			SendClientMessage(playerid, -1, ""LIGHTSKYBLUE"NOTE:"WHITE" Discord kita yaitu: "GOLD1"dsc.gg/happyroleplay");
+			SendClientMessage(playerid, -1, ""LIGHTSKYBLUE"MOTD: "WHITE"Selamat bermain dan memulai cerita di "City"Happy Roleplay");
 
 			new vQuery[300];
 			mysql_format(g_SQL, vQuery, sizeof(vQuery), "SELECT * FROM `player_vehicles` WHERE `PVeh_OwnerID` = '%d' ORDER BY `id` ASC", AccountData[playerid][pID]);
@@ -2389,7 +2416,7 @@ public OnPlayerKeyStateChange(playerid, newkeys, oldkeys)
 	{
 		if(AccountData[playerid][pInjured])
 		{
-		    Dialog_Show(playerid, DeathRespawnConf, DIALOG_STYLE_MSGBOX, ""City"Execute Roleplay "WHITE"- Konfirmasi Koma",
+		    Dialog_Show(playerid, DeathRespawnConf, DIALOG_STYLE_MSGBOX, ""City"Happy Roleplay "WHITE"- Konfirmasi Koma",
 		    "Apakah anda benar benar yakin ingin melakukan tindakan ini?\n"RED"NOTE: Tindakan ini dapat menghilangkan semua barang di tas termasuk uang cash", "Iya", "Tidak");
 		}
 	}
@@ -3439,7 +3466,7 @@ public OnClickDynamicPlayerTextDraw(playerid, PlayerText: textid)
 	if(textid == inv::string[playerid][21])//amount
 	{
 		if(AccountData[playerid][pSelectItem] == -1) return ShowTDN(playerid, NOTIFICATION_WARNING, "Anda belum memilih item!");
-		ShowPlayerDialog(playerid, DIALOG_SETAMOUNT, DIALOG_STYLE_INPUT, ""City"Execute Roleplay "WHITE"- Set Amount",
+		ShowPlayerDialog(playerid, DIALOG_SETAMOUNT, DIALOG_STYLE_INPUT, ""City"Happy Roleplay "WHITE"- Set Amount",
 		"Mohon masukkan berapa jumlah item yang akan diberikan:", "Set", "Batal");
 	}
 	if(textid == inv::string[playerid][22])//use
@@ -3480,11 +3507,11 @@ public OnClickDynamicPlayerTextDraw(playerid, PlayerText: textid)
 		{
 			PlayerPlaySound(playerid, 5206, 0.0, 0.0, 0.0);
 			Inventory_Close(playerid);
-			return ShowPlayerDialog(playerid, DIALOG_UNUSED, DIALOG_STYLE_MSGBOX, ""City"Execute Roleplay "WHITE"- Give Item",
+			return ShowPlayerDialog(playerid, DIALOG_UNUSED, DIALOG_STYLE_MSGBOX, ""City"Happy Roleplay "WHITE"- Give Item",
 			"Tidak ada player yang dekat dengan anda!", "Tutup", "");
 		}
 
-		ShowPlayerDialog(playerid, DIALOG_MEMBERI, DIALOG_STYLE_LIST, ""City"Execute Roleplay "WHITE"- Give Item", frmxt, "Pilih", "Close");
+		ShowPlayerDialog(playerid, DIALOG_MEMBERI, DIALOG_STYLE_LIST, ""City"Happy Roleplay "WHITE"- Give Item", frmxt, "Pilih", "Close");
 	}
 	if(textid == inv::string[playerid][24])//drop
 	{
@@ -3648,7 +3675,7 @@ public OnClickDynamicPlayerTextDraw(playerid, PlayerText: textid)
 		\n"GRAY"Holster\
 		\nMasuk ke dalam bagasi");
 		
-		ShowPlayerDialog(playerid, DIALOG_VEHICLE_MENU, DIALOG_STYLE_LIST, ""City"Execute Roleplay "WHITE"- Vehicle Menu",
+		ShowPlayerDialog(playerid, DIALOG_VEHICLE_MENU, DIALOG_STYLE_LIST, ""City"Happy Roleplay "WHITE"- Vehicle Menu",
 		string, "Pilih", "Batal");
 	}
 
@@ -3656,7 +3683,7 @@ public OnClickDynamicPlayerTextDraw(playerid, PlayerText: textid)
 	{
 		PlayerPlaySound(playerid, 21000, 0.0, 0.0, 0.0);
 		ShowPlayerRadial1(playerid, false);
-		Dialog_Show(playerid, DOKUMENT_MENU, DIALOG_STYLE_LIST, ""City"Execute Roleplay "WHITE"- Dokument",
+		Dialog_Show(playerid, DOKUMENT_MENU, DIALOG_STYLE_LIST, ""City"Happy Roleplay "WHITE"- Dokument",
 		""YELLOW"Identitas:\
 		\n\n> Lihat KTP\
 		\n"GRAY"> Tunjukan KTP\
@@ -3685,19 +3712,19 @@ public OnClickDynamicPlayerTextDraw(playerid, PlayerText: textid)
 			
 		if (AccountData[playerid][pFaction] == FACTION_NONE && AccountData[playerid][pFamily] == -1)
 		{
-			Dialog_Show(playerid, PANEL_NONE, DIALOG_STYLE_LIST, ""City"Execute Roleplay "WHITE"- Menu Warga", "Drag/Undrag Person", "Pilih", "Batal");
+			Dialog_Show(playerid, PANEL_NONE, DIALOG_STYLE_LIST, ""City"Happy Roleplay "WHITE"- Menu Warga", "Drag/Undrag Person", "Pilih", "Batal");
 			ShowPlayerRadial1(playerid, false);
 		}
 		else if (AccountData[playerid][pFaction] == FACTION_TRANS && AccountData[playerid][pFamily] == -1)
 		{
-			Dialog_Show(playerid, PANEL_NONE, DIALOG_STYLE_LIST, ""City"Execute Roleplay "WHITE"- Menu Warga", "Drag/Undrag Person", "Pilih", "Batal");
+			Dialog_Show(playerid, PANEL_NONE, DIALOG_STYLE_LIST, ""City"Happy Roleplay "WHITE"- Menu Warga", "Drag/Undrag Person", "Pilih", "Batal");
 			ShowPlayerRadial1(playerid, false);
 		}
 		else
 		{
 			if (count > 0)
 			{
-				Dialog_Show(playerid, DialogKantongPanel, DIALOG_STYLE_LIST, ""City"Execute Roleplay"WHITE" - Faction Panel", frmtx, "Pilih", "Batal");
+				Dialog_Show(playerid, DialogKantongPanel, DIALOG_STYLE_LIST, ""City"Happy Roleplay"WHITE" - Faction Panel", frmtx, "Pilih", "Batal");
 			}
 			else ShowTDN(playerid, NOTIFICATION_WARNING, "Tidak ada orang disekitar anda!");
 			
@@ -3708,7 +3735,7 @@ public OnClickDynamicPlayerTextDraw(playerid, PlayerText: textid)
 		{
 			if (count > 0)
 			{
-				Dialog_Show(playerid, FamiliesKantongList, DIALOG_STYLE_LIST, ""City"Execute Roleplay"WHITE" - Faction Panel (Gang)", frmtx, "Pilih", "Batal");
+				Dialog_Show(playerid, FamiliesKantongList, DIALOG_STYLE_LIST, ""City"Happy Roleplay"WHITE" - Faction Panel (Gang)", frmtx, "Pilih", "Batal");
 			}
 			else ShowTDN(playerid, NOTIFICATION_WARNING, "Tidak ada orang disekitar anda!");
 			return ShowPlayerRadial1(playerid, false);
@@ -3789,7 +3816,7 @@ public OnClickDynamicPlayerTextDraw(playerid, PlayerText: textid)
 
     if(textid == ContactButtonPhone[playerid])
     {
-        ShowPlayerDialog(playerid, DialogOpenContact, DIALOG_STYLE_LIST, ""City"Execute Roleplay "WHITE"- Kontak", "Tambahkan Kontak Baru\nLihat Daftar Kontak", "Pilih", "Batal");
+        ShowPlayerDialog(playerid, DialogOpenContact, DIALOG_STYLE_LIST, ""City"Happy Roleplay "WHITE"- Kontak", "Tambahkan Kontak Baru\nLihat Daftar Kontak", "Pilih", "Batal");
     }
 
     if(textid == GpsButtonPhone[playerid])
@@ -3799,10 +3826,10 @@ public OnClickDynamicPlayerTextDraw(playerid, PlayerText: textid)
         if(PlayerKargoVars[playerid][KargoStarted]) return ShowTDN(playerid, NOTIFICATION_ERROR, "Anda sedang bekerja sebagai Supir Kargo!");
 
         if(AccountData[playerid][pFaction] == FACTION_EMS && AccountData[playerid][pDutyEms]) {
-            Dialog_Show(playerid, GpsMenu, DIALOG_STYLE_LIST, ""City"Execute Roleplay "WHITE"- Menu Gps",
+            Dialog_Show(playerid, GpsMenu, DIALOG_STYLE_LIST, ""City"Happy Roleplay "WHITE"- Menu Gps",
             "Lokasi GPS\n"GRAY"Signal Emergency (EMS)", "Pilih", "Batal");
         } else {
-            ShowPlayerDialog(playerid, LokasiGps, DIALOG_STYLE_LIST, ""City"Execute Roleplay "WHITE"- Lokasi",
+            ShowPlayerDialog(playerid, LokasiGps, DIALOG_STYLE_LIST, ""City"Happy Roleplay "WHITE"- Lokasi",
 			"Lokasi Umum\
 			\n"GRAY"Lokasi Pekerjaan\
 			\nLokasi Hobi\
@@ -3826,12 +3853,12 @@ public OnClickDynamicPlayerTextDraw(playerid, PlayerText: textid)
         format(strings, sizeof(strings), "Status: %s\
         \nShare Contacts", AccountData[playerid][AirdropPermission] ? ""LIGHTGREEN"Share Contact diizinkan" : ""RED"Share Contact tidak diizinkan");
         
-        ShowPlayerDialog(playerid, DIALOG_AIRDROPDISPLAY, DIALOG_STYLE_LIST, ""City"Execute Roleplay "WHITE"- Airdrop", strings, "Pilih", "Batal");
+        ShowPlayerDialog(playerid, DIALOG_AIRDROPDISPLAY, DIALOG_STYLE_LIST, ""City"Happy Roleplay "WHITE"- Airdrop", strings, "Pilih", "Batal");
     }
 
     if(textid == SettingButtonPhone[playerid])
     {
-        Dialog_Show(playerid, SettingPhone, DIALOG_STYLE_LIST, ""City"Execute Roleplay "WHITE"- Pengaturan",
+        Dialog_Show(playerid, SettingPhone, DIALOG_STYLE_LIST, ""City"Happy Roleplay "WHITE"- Pengaturan",
         "Tentang Ponsel\
         \n"GRAY"Ubah Nada Dering Telepon\
         \nHapus Nada Dering\
@@ -3866,13 +3893,13 @@ public OnClickDynamicPlayerTextDraw(playerid, PlayerText: textid)
         if(AccountData[playerid][phoneAirplaneMode]) 
             return ShowTDN(playerid, NOTIFICATION_ERROR, "Smartphone sedang dalam Mode Pesawat!");
 
-        ShowPlayerDialog(playerid, DIALOG_YELLOW_PAGE_MENU, DIALOG_STYLE_LIST, ""City"Execute Roleplay "WHITE"- Yellow Pages",
+        ShowPlayerDialog(playerid, DIALOG_YELLOW_PAGE_MENU, DIALOG_STYLE_LIST, ""City"Happy Roleplay "WHITE"- Yellow Pages",
         "Melihat antrian iklan\nKirim iklan baru", "Pilih", "Batal");
     }
 
     if(textid == CallButtonPhone[playerid])
     {
-        ShowPlayerDialog(playerid, DialogTelepon, DIALOG_STYLE_INPUT, ""City"Execute Roleplay "WHITE"- Telepon", "Mohon masukan nomor telepon yang ingin anda hubungi:", "Telfon", "Batal");
+        ShowPlayerDialog(playerid, DialogTelepon, DIALOG_STYLE_INPUT, ""City"Happy Roleplay "WHITE"- Telepon", "Mohon masukan nomor telepon yang ingin anda hubungi:", "Telfon", "Batal");
     }
 
     if(textid == BankButtonPhone[playerid])
@@ -3896,7 +3923,7 @@ public OnClickDynamicPlayerTextDraw(playerid, PlayerText: textid)
         if(AccountData[playerid][phoneAirplaneMode]) return ShowTDN(playerid, NOTIFICATION_ERROR, "Smartphone anda sedang Mode Pesawat!");
         if(AccountData[playerid][pTaxiPlayer] != INVALID_PLAYER_ID) return ShowTDN(playerid, NOTIFICATION_ERROR, "Anda sedang menjadi penumpang di Trans!");
         
-        ShowPlayerDialog(playerid, DIALOG_TRANSORDER, DIALOG_STYLE_INPUT, ""City"Execute Roleplay "WHITE"- Pesan Transportasi",
+        ShowPlayerDialog(playerid, DIALOG_TRANSORDER, DIALOG_STYLE_INPUT, ""City"Happy Roleplay "WHITE"- Pesan Transportasi",
         "Hai, kamu ingin memesan Trans, mau kemana hari ini?", "Input", "Batal");
     }
 
@@ -3933,7 +3960,7 @@ public OnClickDynamicPlayerTextDraw(playerid, PlayerText: textid)
 
     if(textid == TransferBankButton[playerid])
     {
-        ShowPlayerDialog(playerid, DialogTransfer, DIALOG_STYLE_INPUT, ""City"Execute Roleplay "WHITE"- Transfer", 
+        ShowPlayerDialog(playerid, DialogTransfer, DIALOG_STYLE_INPUT, ""City"Happy Roleplay "WHITE"- Transfer", 
         "Mohon masukkan nomor rekening yang ingin anda transfer:", "Submit", "Batal");
     }
 
@@ -3941,7 +3968,7 @@ public OnClickDynamicPlayerTextDraw(playerid, PlayerText: textid)
     {
         if(AccountData[playerid][pEarphone] != 1) return ShowTDN(playerid, NOTIFICATION_ERROR, "Anda tidak memiliki Earphone!");
         
-        ShowPlayerDialog(playerid, DialogSpotify, DIALOG_STYLE_LIST, ""City"Execute Roleplay "WHITE"- Spotify", "Matikan Musik\nPutar Musik", "Select", "Cancel");
+        ShowPlayerDialog(playerid, DialogSpotify, DIALOG_STYLE_LIST, ""City"Happy Roleplay "WHITE"- Spotify", "Matikan Musik\nPutar Musik", "Select", "Cancel");
     }
 
     if(textid == ATRP_SpotifyTD[playerid][18]) // boomboox
@@ -3952,7 +3979,7 @@ public OnClickDynamicPlayerTextDraw(playerid, PlayerText: textid)
 		{
 			if(IsPlayerInRangeOfPoint(playerid, 3.0, GetPVarFloat(playerid, "BBX"), GetPVarFloat(playerid, "BBY"), GetPVarFloat(playerid, "BBZ")))
 			{
-				ShowPlayerDialog(playerid, DANN_BOOMBOX, DIALOG_STYLE_LIST, ""City"Execute Roleplay "WHITE"- Boombox", "Matikan Boombox\nPutar Musik", "Select", "Cancel");
+				ShowPlayerDialog(playerid, DANN_BOOMBOX, DIALOG_STYLE_LIST, ""City"Happy Roleplay "WHITE"- Boombox", "Matikan Boombox\nPutar Musik", "Select", "Cancel");
 			}
 			else
 			{
@@ -3970,7 +3997,7 @@ public OnClickDynamicPlayerTextDraw(playerid, PlayerText: textid)
         if(AccountData[playerid][phoneAirplaneMode]) 
             return ShowTDN(playerid, NOTIFICATION_ERROR, "Smartphone sedang dalam Mode Pesawat!");
 
-        ShowPlayerDialog(playerid, DIALOG_TWITTER_SIGN, DIALOG_STYLE_INPUT, ""City"Execute Roleplay "WHITE"- Daftar Twitter",
+        ShowPlayerDialog(playerid, DIALOG_TWITTER_SIGN, DIALOG_STYLE_INPUT, ""City"Happy Roleplay "WHITE"- Daftar Twitter",
         "Hai, selamat datang di Twitter!\
         \nSilahkan masukkan username Twitter kamu, ini akan ditampilkan pada setiap post tweet yang kamu buat:\
         \nIngat: Username hanya dapat berupa huruf dan angka, tidak menggunakan simbol!\
@@ -3982,7 +4009,7 @@ public OnClickDynamicPlayerTextDraw(playerid, PlayerText: textid)
         if(AccountData[playerid][phoneAirplaneMode]) 
             return ShowTDN(playerid, NOTIFICATION_ERROR, "Smartphone sedang dalam Mode Pesawat!");
 
-        ShowPlayerDialog(playerid, DIALOG_TWITTER_LOGIN, DIALOG_STYLE_INPUT, ""City"Execute Roleplay "WHITE"- Login Twitter", 
+        ShowPlayerDialog(playerid, DIALOG_TWITTER_LOGIN, DIALOG_STYLE_INPUT, ""City"Happy Roleplay "WHITE"- Login Twitter", 
         "Hai, selamat datang di Twitter!\
         \nSilahkan masukkan username Twitter kamu yang telah terdaftar:", "Input", "Batal");
     }
@@ -4498,7 +4525,7 @@ public OnClickDynamicPlayerTextDraw(playerid, PlayerText: textid)
 	//radio
 	if(textid == ATRP_RadioTD[playerid][10]) //set freq
     {   
-        ShowPlayerDialog(playerid, DIALOG_RADIO_FREQ, DIALOG_STYLE_INPUT, ""City"Execute Roleplay "WHITE"- Radio Fx",
+        ShowPlayerDialog(playerid, DIALOG_RADIO_FREQ, DIALOG_STYLE_INPUT, ""City"Happy Roleplay "WHITE"- Radio Fx",
         "Masukkan frekuensi radio yang ingin diterapkan pada kolom dibawah ini\
         \n(Frekuensi harus berada diantara 0 - 9999)\
         \nCatatan: Masukkan frekuensi 0 untuk memutuskan saluran frekuensi/netral", "Submit", "Batal");
@@ -4924,15 +4951,15 @@ public OnClickDynamicPlayerTextDraw(playerid, PlayerText: textid)
 	//atm
 	if(textid == VR_ATMTD[playerid][36])// Withdraw
 	{
-		ShowPlayerDialog(playerid, DIALOG_ATM_WITHDRAW, DIALOG_STYLE_INPUT, ""City"Execute Roleplay "WHITE"- Fleeca Bank", "Mohon masukan berapa jumlah uang yang anda ingin anda ambil:", "Submit", "Batal");
+		ShowPlayerDialog(playerid, DIALOG_ATM_WITHDRAW, DIALOG_STYLE_INPUT, ""City"Happy Roleplay "WHITE"- Fleeca Bank", "Mohon masukan berapa jumlah uang yang anda ingin anda ambil:", "Submit", "Batal");
 	}
 	if(textid == VR_ATMTD[playerid][37])// Deposit
 	{
-		ShowPlayerDialog(playerid, DIALOG_ATM_DEPOSIT, DIALOG_STYLE_INPUT, ""City"Execute Roleplay "WHITE"- Fleeca Bank", "Mohon masukan berapa jumlah uang yang ingin anda masukkan:", "Submit", "Batal");
+		ShowPlayerDialog(playerid, DIALOG_ATM_DEPOSIT, DIALOG_STYLE_INPUT, ""City"Happy Roleplay "WHITE"- Fleeca Bank", "Mohon masukan berapa jumlah uang yang ingin anda masukkan:", "Submit", "Batal");
 	}
 	if(textid == VR_ATMTD[playerid][38])// Transfer
 	{
-		ShowPlayerDialog(playerid, DIALOG_ATM_TRANSFER, DIALOG_STYLE_INPUT, ""City"Execute Roleplay "WHITE"- Fleeca Bank", "Mohon masukkan nomor rekening yang ingin anda transfer:", "Submit", "Batal");
+		ShowPlayerDialog(playerid, DIALOG_ATM_TRANSFER, DIALOG_STYLE_INPUT, ""City"Happy Roleplay "WHITE"- Fleeca Bank", "Mohon masukkan nomor rekening yang ingin anda transfer:", "Submit", "Batal");
 	}
 	if(textid == VR_ATMTD[playerid][43])// Log Out
 	{
@@ -5397,7 +5424,7 @@ public OnClickDynamicPlayerTextDraw(playerid, PlayerText: textid)
 			pToys[playerid][AccountData[playerid][toySelected]][toy_sy] = 1.0;
 			pToys[playerid][AccountData[playerid][toySelected]][toy_sz] = 1.0;
 			
-			ShowPlayerDialog(playerid, DIALOG_TOYPOSISIBUY, DIALOG_STYLE_LIST, ""City"Execute Roleplay"WHITE"- Ubah Tulang(Bone)", 
+			ShowPlayerDialog(playerid, DIALOG_TOYPOSISIBUY, DIALOG_STYLE_LIST, ""City"Happy Roleplay"WHITE"- Ubah Tulang(Bone)", 
 			"Spine\
 			\n"GRAY"Head\
 			\nLeft Upper Arm\
@@ -5448,7 +5475,7 @@ public OnClickDynamicPlayerTextDraw(playerid, PlayerText: textid)
 			pToys[playerid][AccountData[playerid][toySelected]][toy_sy] = 1.0;
 			pToys[playerid][AccountData[playerid][toySelected]][toy_sz] = 1.0;
 			
-			ShowPlayerDialog(playerid, DIALOG_TOYPOSISIBUY, DIALOG_STYLE_LIST, ""City"Execute Roleplay"WHITE"- Ubah Tulang(Bone)", 
+			ShowPlayerDialog(playerid, DIALOG_TOYPOSISIBUY, DIALOG_STYLE_LIST, ""City"Happy Roleplay"WHITE"- Ubah Tulang(Bone)", 
 			"Spine\
 			\n"GRAY"Head\
 			\nLeft Upper Arm\
@@ -5499,7 +5526,7 @@ public OnClickDynamicPlayerTextDraw(playerid, PlayerText: textid)
 			pToys[playerid][AccountData[playerid][toySelected]][toy_sy] = 1.0;
 			pToys[playerid][AccountData[playerid][toySelected]][toy_sz] = 1.0;
 			
-			ShowPlayerDialog(playerid, DIALOG_TOYPOSISIBUY, DIALOG_STYLE_LIST, ""City"Execute Roleplay"WHITE"- Ubah Tulang(Bone)", 
+			ShowPlayerDialog(playerid, DIALOG_TOYPOSISIBUY, DIALOG_STYLE_LIST, ""City"Happy Roleplay"WHITE"- Ubah Tulang(Bone)", 
 			"Spine\
 			\n"GRAY"Head\
 			\nLeft Upper Arm\
