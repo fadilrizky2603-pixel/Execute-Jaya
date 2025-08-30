@@ -1,30 +1,3 @@
-/*
-
-██╗  ██╗ █████╗ ██████╗ ██████╗ ██╗   ██╗    ██████╗  ██████╗ ██╗     ███████╗██████╗ ██╗      █████╗ ██╗   ██╗
-██║  ██║██╔══██╗██╔══██╗██╔══██╗╚██╗ ██╔╝    ██╔══██╗██╔═══██╗██║     ██╔════╝██╔══██╗██║     ██╔══██╗╚██╗ ██╔╝
-███████║███████║██████╔╝██████╔╝ ╚████╔╝     ██████╔╝██║   ██║██║     █████╗  ██████╔╝██║     ███████║ ╚████╔╝ 
-██╔══██║██╔══██║██╔═══╝ ██╔═══╝   ╚██╔╝      ██╔══██╗██║   ██║██║     ██╔══╝  ██╔═══╝ ██║     ██╔══██║  ╚██╔╝  
-██║  ██║██║  ██║██║     ██║        ██║       ██║  ██║╚██████╔╝███████╗███████╗██║     ███████╗██║  ██║   ██║   
-╚═╝  ╚═╝╚═╝  ╚═╝╚═╝     ╚═╝        ╚═╝       ╚═╝  ╚═╝ ╚═════╝ ╚══════╝╚══════╝╚═╝     ╚══════╝╚═╝  ╚═╝   ╚═╝   
-										GAMEMODE V2
-
-Owner : Alstonn(irzam)
-Developer : XenXen
- 
-	  Thanks For :	
-	- Kalcor (samp)
-	- Zeex (plugins crashdetectd)
-	- Y_Less (ysi libarary)
-	- dhan (developer is gamemode)
-	- Bonti (give script & asking)
-	- Agus (give script & asking)
-	- Galang Indra (give script & asking)
-	- etc.
-
-Thanks all administartor and developer
-
-*/
-
 #pragma warning disable 239, 208, 209
 
 #define CGEN_MEMORY             (20000)
